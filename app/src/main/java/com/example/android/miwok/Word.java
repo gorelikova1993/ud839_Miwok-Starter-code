@@ -23,15 +23,18 @@ public class Word {
      *                           (such as English)
      * @param miwokTranslation   is the word in the Miwok language
      */
-    public Word(String defaultTranslation, String miwokTranslation) {
+    private int mAudioResouceId;
+    public Word(String defaultTranslation, String miwokTranslation, int AudioResouceId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+        mAudioResouceId = AudioResouceId;
     }
 
-    public Word(String defaultTranslation, String miwokTranslation, int ImageResourceId) {
+    public Word(String defaultTranslation, String miwokTranslation, int ImageResourceId, int AudioResouceId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mImageResourceId = ImageResourceId;
+        mAudioResouceId = AudioResouceId;
     }
 
     /**
@@ -54,7 +57,20 @@ public class Word {
     /**
      * Returns whether or not there is an image for this word.
      */
+
     public boolean hasImage() {
         return mImageResourceId != NO_IMAGE_PROVIDED;
+    }
+
+    public int getmAudioResouceId() {return mAudioResouceId;}
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "mDefaultTranslation='" + mDefaultTranslation + '\'' +
+                ", mMiwokTranslation='" + mMiwokTranslation + '\'' +
+                ", mImageResourceId=" + mImageResourceId +
+                ", mAudioResouceId=" + mAudioResouceId +
+                '}';
     }
 }
